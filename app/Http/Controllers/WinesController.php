@@ -57,4 +57,5 @@ class WinesController extends Controller
 
         return redirect('/wines');
     }
+
 }

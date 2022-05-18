@@ -1,4 +1,4 @@
-#Tutorial 8
+# Tutorial 8
 In this tutorial, we are going to apply the state management using Laravel.
 ## Activity 1 – Authentication
 You are going to create registration, login and logout function using Laravel. When a user clicks the

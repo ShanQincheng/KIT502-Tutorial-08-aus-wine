@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\MainPageController;
-use App\Http\Controllers\WinesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +14,11 @@ use App\Http\Controllers\WinesController;
 */
 
 Route::get('/', function () {
-    return view('main');
-}) -> name('home');
+    return view('welcome');
+});
 
-Route::get('/wines', [WinesController::class, 'index']) -> name('wines');
-Route::post('/wines', [WinesController::class, 'store']) -> name('store.wines');
-Route::post('/wines/{ID}', [WinesController::class, 'edit']) -> name('edit.wines');
-Route::delete('/wines/{ID}', [WinesController::class, 'delete']) -> name('delete.wines');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

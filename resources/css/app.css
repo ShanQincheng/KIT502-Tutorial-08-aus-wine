@@ -1,11 +1,3 @@
-#homeWelcomeBox {
-    height: 70vh;
-}
-
-#homeWelcomePic {
-    height: inherit;
-}
-
-.img-detail {
-    height: 30vh;
-}
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
