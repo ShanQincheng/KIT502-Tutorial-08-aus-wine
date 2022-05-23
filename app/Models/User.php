@@ -36,6 +36,14 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $gender
+ * @property string $address
+ * @property string $account_number
+ * @property string|null $type
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereAccountNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereGender($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereType($value)
  */
 class User extends Authenticatable
 {
@@ -53,6 +61,7 @@ class User extends Authenticatable
         'gender',
         'address',
         'account_number',
+        'type',
     ];
 
     /**

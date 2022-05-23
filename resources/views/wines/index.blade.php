@@ -18,7 +18,9 @@
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
                 <th scope="col">Region</th>
-                <th scope="col">Action</th>
+                @if(isset(Auth::user()->type) && Auth::user()->type == 'staff')
+                    <th scope="col">Action</th>
+                @endif
             </tr>
             </thead>
             <tbody>
@@ -30,10 +32,12 @@
                     <td id="price-wine-{{$loop->index}}" name="price-wine-{{$loop->index}}">{{$wine->Price}}</td>
                     <td id="region-wine-{{$loop->index}}" name="region-wine-{{$loop->index}}">{{$wine->Region}}</td>
                     <td>
-                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editWineModal"
-                                value="{{$loop->index}}" onclick="editWine(this.value)">Edit</button>
-                        <button type="button" class="btn btn-danger"
-                                value="{{$wine->Name}}" onclick="deleteWine(this.value)">Delete</button>
+                        @if(isset(Auth::user()->type) && Auth::user()->type == 'staff')
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editWineModal"
+                                    value="{{$loop->index}}" onclick="editWine(this.value)">Edit</button>
+                            <button type="button" class="btn btn-danger"
+                                    value="{{$wine->Name}}" onclick="deleteWine(this.value)">Delete</button>
+                        @endif
                     </td>
                 </tr>
             @endforeach
