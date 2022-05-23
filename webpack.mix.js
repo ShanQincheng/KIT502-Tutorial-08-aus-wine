@@ -16,3 +16,6 @@ mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'pub
     require('tailwindcss'),
     require('autoprefixer'),
 ]);
+
+mix.postCss('resources/css/wines.css', 'public/css');
+mix.js('resources/js/wines-index.js', 'public/js');

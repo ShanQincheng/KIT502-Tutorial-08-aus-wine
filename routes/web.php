@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\WinesController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('main');
+}) -> name('home');
+
+Route::get('/wines', [WinesController::class, 'index']) -> name('wines')->middleware('auth');
+Route::post('/wines', [WinesController::class, 'store']) -> name('store.wines');
+Route::post('/wines/{ID}', [WinesController::class, 'edit']) -> name('edit.wines');
+Route::delete('/wines/{ID}', [WinesController::class, 'delete']) -> name('delete.wines');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
