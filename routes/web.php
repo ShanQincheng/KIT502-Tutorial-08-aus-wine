@@ -24,9 +24,4 @@ Route::post('/wines', [WinesController::class, 'store']) -> name('store.wines');
 Route::post('/wines/{ID}', [WinesController::class, 'edit']) -> name('edit.wines');
 Route::delete('/wines/{ID}', [WinesController::class, 'delete']) -> name('delete.wines');
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 require __DIR__.'/auth.php';
